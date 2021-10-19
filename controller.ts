@@ -1,7 +1,7 @@
 import { readdirSync, statSync } from 'fs'
 import { extname, join } from 'path'
 
-const serveDir = ['files','..','..']
+const serveDir = ['files']
 
 export const subDir = (sub: string, root: string[]): string => {
   const dirWithSpace = sub.split('|').join(' ')
@@ -30,11 +30,14 @@ export const getDirectoryContents = (dir: string) => {
         return {
           name: file.name,
           type: 'directory',
+          path: join(subDir(dir, serveDir), file.name),
         }
       }
       const stats = statSync(join(subDir(dir, serveDir), file.name))
       return {
         name: file.name,
+        type: 'file',
+        path: join(subDir(dir, serveDir), file.name),
         ext: extname(file.name),
         size: stats.size,
       }

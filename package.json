@@ -6,6 +6,8 @@
   "author": "Ashik Rahman <ashrhmn99@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/cors": "^2.8.12",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
